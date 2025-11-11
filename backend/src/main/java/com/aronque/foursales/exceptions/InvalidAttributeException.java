@@ -1,0 +1,8 @@
+package com.aronque.foursales.exceptions;
+
+public class InvalidAttributeException extends RuntimeException {
+
+    public InvalidAttributeException(String message) {
+        super(message);
+    }
+}

@@ -1,0 +1,36 @@
+services:
+  db:
+    build: ./db
+    container_name: db_container
+    volumes:
+      - mysql-data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'tst'
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PWD}
+      MYSQL_DATABASE: ${MYSQL_DB}
+    ports:
+      - '3306:3306'
+      - '33060:33060'
+    networks:
+      - case_network
+  app:
+    depends_on:
+      - db
+    build: ./backend
+    container_name: app_container
+    networks:
+      - case_network
+    restart: always
+    environment:
+      DB_HOST: jdbc:mysql://db:3306/${MYSQL_DB}
+      DB_USER: ${MYSQL_USER}
+      DB_PASSWORD: ${MYSQL_PWD}
+    ports:
+      - "8080:8080"
+volumes:
+  mysql-data:
+networks:
+  case_network:
+    driver: bridge

@@ -1,0 +1,3 @@
+FROM mysql:lts
+
+EXPOSE 3306
