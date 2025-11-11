@@ -13,8 +13,8 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 @Table(name = "USERS")
+@NoArgsConstructor
 public class User {
 
     @Serial

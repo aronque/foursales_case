@@ -15,9 +15,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "ORDERS")
 @Getter
 @Setter
+@Table(name = "ORDERS")
 @AllArgsConstructor
 public class Order {
 

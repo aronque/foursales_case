@@ -1,6 +1,6 @@
 services:
   db:
-    build: ./db
+    image: mysql
     container_name: db_container
     volumes:
       - mysql-data:/var/lib/mysql
